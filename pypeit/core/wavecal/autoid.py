@@ -1153,6 +1153,7 @@ class ArchiveReid:
                        'the orders must be provided.')
 
         # TODO: What does and does not need to be an attribute?
+        debug_all = True
 
         # Debugging
         self.debug_peaks = debug_peaks or debug_all
