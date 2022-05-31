@@ -1,5 +1,6 @@
 """ Module for finding patterns in arc line spectra
 """
+from re import T
 from scipy.ndimage.filters import gaussian_filter
 from scipy.spatial import cKDTree
 import itertools
@@ -894,6 +895,10 @@ def full_template(spec, lamps, par, ok_mask, det, binspectral, nsnippet=2,
           Dict of wavelength calibration solutions
 
     """
+    debug = True
+    debug_xcorr = True
+    debug_reid = True
+
     # Load line lists
     if 'ThAr' in lamps:
         line_lists_all = waveio.load_line_lists(lamps)
@@ -1153,7 +1158,6 @@ class ArchiveReid:
                        'the orders must be provided.')
 
         # TODO: What does and does not need to be an attribute?
-        debug_all = True
 
         # Debugging
         self.debug_peaks = debug_peaks or debug_all
